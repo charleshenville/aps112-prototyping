@@ -6,10 +6,10 @@
 
 LCDWIKI_KBV my_lcd(ILI9486,A3,A2,A1,A0,A4);
 
-#define YP A3  // must be an analog pin, use "An" notation!
-#define XM A2  // must be an analog pin, use "An" notation!
-#define YM 9   // can be a digital pin
-#define XP 8   // can be a digital pin
+#define YP A3  // must be analog
+#define XM A2  // must be analog
+#define YM 9   // can be digital
+#define XP 8   // can be digital
 
 //param calibration from kbv
 //res 480 x 320
@@ -22,9 +22,6 @@ LCDWIKI_KBV my_lcd(ILI9486,A3,A2,A1,A0,A4);
 #define MINPRESSURE 10
 #define MAXPRESSURE 1000
 
-// For better pressure precision, we need to know the resistance
-// between X+ and X- Use any multimeter to read it
-// For the one we're using, its 300 ohms across the X plate
 TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);
 
 #define BLACK   0x0000
@@ -37,8 +34,6 @@ TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);
 #define WHITE   0xFFFF
 #define L_GRAY  0xD5D5
 #define D_GRAY  0x4949
-
-uint16_t color_mask[] = {0xF800,0xFFE0,0x07E0,0x07FF,0x001F,0xF81F}; //color select
 
 #define COLORBOXSIZE my_lcd.Get_Display_Width()/6
 #define PENBOXSIZE my_lcd.Get_Display_Width()/4
